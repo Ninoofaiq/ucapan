@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Sweet 17</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #08111f, #0d1b2a, #000);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Stars */
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0.2;
+            }
+        }
+
+        /* Title */
+        .title {
+            position: absolute;
+            top: 60px;
+            text-align: center;
+            color: white;
+            z-index: 10;
+            animation: fade 2s ease;
+        }
+
+        .title h1 {
+            font-size: 48px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .title p {
+            color: #cbd5e1;
+            font-size: 16px;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Flowers Container */
+        .flowers {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Flower */
+        .flower {
+            position: absolute;
+            bottom: -200px;
+            animation: grow 4s ease forwards;
+        }
+
+        .flower:nth-child(1) {
+            left: 35%;
+            animation-delay: .5s;
+        }
+
+        .flower:nth-child(2) {
+            left: 50%;
+            transform: scale(1.1);
+            animation-delay: 1s;
+        }
+
+        .flower:nth-child(3) {
+            left: 65%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes grow {
+            from {
+                bottom: -300px;
+                opacity: 0;
+            }
+
+            to {
+                bottom: -40px;
+                opacity: 1;
+            }
+        }
+
+        /* Stem */
+        .stem {
+            width: 8px;
+            height: 250px;
+            background: linear-gradient(to top, #14532d, #22c55e);
+            margin: auto;
+            border-radius: 20px;
+        }
+
+        /* Petals */
+        .petals {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: auto;
+            margin-bottom: -30px;
+            animation: rotate 12s linear infinite;
+        }
+
+        @keyframes rotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .petal {
+            position: absolute;
+            width: 50px;
+            height: 80px;
+            background: linear-gradient(to bottom, #ff8dc7, #ff4fa0);
+            border-radius: 50px 50px 0 0;
+            left: 35px;
+            top: 20px;
+            transform-origin: bottom center;
+            box-shadow: 0 0 20px rgba(255, 105, 180, .5);
+        }
+
+        .petal:nth-child(1) {
+            transform: rotate(0deg);
+        }
+
+        .petal:nth-child(2) {
+            transform: rotate(45deg);
+        }
+
+        .petal:nth-child(3) {
+            transform: rotate(90deg);
+        }
+
+        .petal:nth-child(4) {
+            transform: rotate(135deg);
+        }
+
+        .petal:nth-child(5) {
+            transform: rotate(180deg);
+        }
+
+        .petal:nth-child(6) {
+            transform: rotate(225deg);
+        }
+
+        .petal:nth-child(7) {
+            transform: rotate(270deg);
+        }
+
+        .petal:nth-child(8) {
+            transform: rotate(315deg);
+        }
+
+        /* Center */
+        .center {
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            background: #fff8dc;
+            border-radius: 50%;
+            top: 42px;
+            left: 42px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, .8);
+        }
+
+        /* Floating lights */
+        .light {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px white;
+            animation: float 6s linear infinite;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Message */
+        .message {
+            position: absolute;
+            bottom: 50px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            z-index: 10;
+            animation: fade 3s ease;
+        }
+
+        .message h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .message p {
+            max-width: 600px;
+            margin: auto;
+            line-height: 1.8;
+            color: #e2e8f0;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Stars -->
+    <script>
+        for (let i = 0; i < 120; i++) {
+            let star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            document.body.appendChild(star);
+        }
+    </script>
+
+    <!-- Title -->
+    <div class="title">
+        <h1>Happy Sweet 17 🌸</h1>
+        <p>Fadhilah Umi Zahra</p>
+    </div>
+
+    <!-- Flowers -->
+    <div class="flowers">
+
+        <div class="flower">
+            <div class="petals">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="center"></div>
+            </div>
+            <div class="stem"></div>
+        </div>
+
+        <div class="flower">
+            <div class="petals">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="center"></div>
+            </div>
+            <div class="stem"></div>
+        </div>
+
+        <div class="flower">
+            <div class="petals">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="center"></div>
+            </div>
+            <div class="stem"></div>
+        </div>
+
+    </div>
+
+    <!-- Message -->
+    <div class="message">
+        <h2>Selamat Ulang Tahun ✨</h2>
+
+        <p>
+            Semoga semua hal baik selalu datang ke hidup kamu,
+            semua doa yang kamu simpan perlahan menjadi nyata,
+            dan kamu selalu dikelilingi kebahagiaan 🌙
+        </p>
+    </div>
+
+    <!-- Lights -->
+    <script>
+        function createLight() {
+            const light = document.createElement('div');
+
+            light.classList.add('light');
+
+            light.style.left = Math.random() * 100 + 'vw';
+            light.style.top = '100vh';
+
+            light.style.animationDuration =
+                (Math.random() * 4 + 3) + 's';
+
+            document.body.appendChild(light);
+
+            setTimeout(() => {
+                light.remove();
+            }, 7000);
+        }
+
+        setInterval(createLight, 300);
+    </script>
+
+</body>
+
+</html>
